@@ -93,8 +93,8 @@ Discover the power of artificial intelligence with this application, which lever
 # Hero image or animation
 # st.image('assets/hero_image.jpg', use_column_width=True)
 # If you have an animation (GIF), use the line below instead:
-path = 'D:\Venkatesh\Projects\CNN Projects\Gender classification already deployed sditing\Gender-classification\hero_img.jpg'
-st.image(r'D:\Venkatesh\Projects\CNN Projects\Gender classification already deployed sditing\Gender-classification\hero_img.jpg', use_column_width=True)
+path = 'hero_img.jpg'
+st.image('ai hero_img.jpg', use_column_width=True)
 
 
 # Add text instructions
@@ -122,7 +122,7 @@ if uploaded_file is not None:
 
 import streamlit as st
 
-image_path = "D:\\Venkatesh\\Projects\\CNN Projects\\Gender classification already deployed sditing\\Gender-classification\\example1.jpg"
+image_path = "example1.jpg"
 print(f"Using image path: {image_path}")
 
 page_bg_img = '''
