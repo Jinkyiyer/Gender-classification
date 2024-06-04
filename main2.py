@@ -9,42 +9,42 @@ import os
 
 #
 #
-# # Path to your zip file (relative path)
-# zip_file_path = 'Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.zip'
-#
-# # Directory where you want to extract the contents of the zip file (relative path)
-# extract_dir = 'unzipped_model'
-#
-# # Get the absolute path of the current directory
-# current_directory = os.getcwd()
-#
-# # Combine the current directory with the relative paths
-# zip_file_path = os.path.join(current_directory, zip_file_path)
-# extract_dir = os.path.join(current_directory, extract_dir)
-#
-# # Create the extraction directory if it doesn't exist
-# os.makedirs(extract_dir, exist_ok=True)
-#
-# # Extract the contents of the zip file
-# with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
-#     zip_ref.extractall(extract_dir)
-#
-# # List the files in the extraction directory
-# extracted_files = os.listdir(extract_dir)
-# print("Extracted files:", extracted_files)
-#
-# # Now you can load your model from the extracted files
-# # For example, if your model file is an h5 file, you can load it like this:
-# model_filename = [f for f in extracted_files if f.endswith('.h5')][0]
-# model_path = os.path.join(extract_dir, model_filename)
-# model = tf.keras.models.load_model(model_path)
+# Path to your zip file (relative path)
+zip_file_path = 'Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.zip'
 
+# Directory where you want to extract the contents of the zip file (relative path)
+extract_dir = 'unzipped_model'
 
+# Get the absolute path of the current directory
+current_directory = os.getcwd()
 
-# # Load your trained models
-model_path = r'D:\Venkatesh\Projects\CNN Projects\Gender classification project\Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.h5'
-# model_path = 'Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.h5'
+# Combine the current directory with the relative paths
+zip_file_path = os.path.join(current_directory, zip_file_path)
+extract_dir = os.path.join(current_directory, extract_dir)
+
+# Create the extraction directory if it doesn't exist
+os.makedirs(extract_dir, exist_ok=True)
+
+# Extract the contents of the zip file
+with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+    zip_ref.extractall(extract_dir)
+
+# List the files in the extraction directory
+extracted_files = os.listdir(extract_dir)
+print("Extracted files:", extracted_files)
+
+# Now you can load your model from the extracted files
+# For example, if your model file is an h5 file, you can load it like this:
+model_filename = [f for f in extracted_files if f.endswith('.h5')][0]
+model_path = os.path.join(extract_dir, model_filename)
 model = tf.keras.models.load_model(model_path)
+
+
+
+# # # Load your trained models
+# model_path = r'D:\Venkatesh\Projects\CNN Projects\Gender classification project\Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.h5'
+# # model_path = 'Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.h5'
+# model = tf.keras.models.load_model(model_path)
 
 
 # Define function to make predictions
