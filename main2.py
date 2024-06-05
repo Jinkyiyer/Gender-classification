@@ -105,7 +105,7 @@ st.sidebar.info("""
 
 
 # Add a link to scroll to the "About" section
-st.markdown("[About the project](#About)")
+st.markdown("[About the project]")
 
 # Add an anchor for the "About" section
 st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
