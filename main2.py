@@ -223,7 +223,7 @@ st.write("""
 
         /* Change font size */
         .my-text-size {
-            font-size: 20px;
+            font-size: 100px;
         }
     </style>
 """, unsafe_allow_html=True)
