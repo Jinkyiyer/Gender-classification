@@ -7,7 +7,13 @@ import matplotlib.pyplot as plt
 import zipfile
 import os
 
-#
+
+
+
+
+
+
+
 #
 # Path to your zip file (relative path)
 zip_file_path = 'Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.zip'
@@ -124,7 +130,7 @@ if st.session_state.sidebar_open:
 
 
 
-# Changing font style, color, and size using HTML/CSS
+## Changing font style, color, and size using HTML/CSS
 st.write("""
     <style>
         /* Change font style */
@@ -160,16 +166,28 @@ st.write("""
 """, unsafe_allow_html=True)
 
 
+# Streamlit UI
+st.title('<h1 class="app-name app-name-color app-name-size">GenderAI Classifier</h1>', unsafe_allow_html=True)
+st.markdown("<p class='other-text other-text-color other-text-size'>*by Venkatesh*</p>", unsafe_allow_html=True)
+
+
+
+# st.write("""
+
+
+
+# Welcome to the **GenderAI Classifier**! 🎉
+
+# Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.
+# """)
 
 
 st.write("""
-
-
-
-Welcome to the **GenderAI Classifier**! 🎉
-
-Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.
-""")
+    <p class='other-text other-text-color other-text-size'>
+        Welcome to the <strong>GenderAI Classifier</strong>! 🎉<br>
+        Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.
+    </p>
+""", unsafe_allow_html=True)
 
 
 # Set background image using an online URL
@@ -241,6 +259,23 @@ Thank you for using the GenderAI Classifier. We appreciate your interest and hop
 
 """)
 
-
+# Footer
+st.markdown("""
+    <style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+    }
+    </style>
+    <div class="footer">
+        <p>© 2024 GenderAI Classifier. All rights reserved. | Developed by Venkatesh</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 
