@@ -74,7 +74,7 @@ def predict_gender(image):
 
 
 
-import streamlit as st
+
 
 # Define a Streamlit Session State to persist sidebar state
 def init_session_state():
@@ -117,14 +117,36 @@ if st.session_state.sidebar_open:
 
 
 
-# Define the Streamlit UI
-st.title('⚥ GenderAI Classifier:  Empowering Insights')
-st.markdown("*by Venkatesh*")
+# # Define the Streamlit UI
+# st.title('⚥ GenderAI Classifier:  Empowering Insights')
+# st.markdown("*by Venkatesh*")
 
-print("\n")
-print("")
-print("")
-print("")
+import streamlit as st
+
+# Changing font style, color, and size using HTML/CSS
+st.write("""
+    <style>
+        /* Change font style */
+        .app-name {
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        /* Change font color */
+        .app-name-color {
+            color: #FF5733; /* Coral color */
+        }
+
+        /* Change font size */
+        .app-name-size {
+            font-size: 48px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Display custom-styled app name
+st.markdown("""
+    <h1 class="app-name app-name-color app-name-size">GenderAI Classifier</h1>
+""", unsafe_allow_html=True)
 
 st.write("""
 
@@ -206,31 +228,5 @@ Thank you for using the GenderAI Classifier. We appreciate your interest and hop
 """)
 
 
-import streamlit as st
-
-# Changing font style, color, and size using HTML/CSS
-st.write("""
-    <style>
-        /* Change font style */
-        .my-text {
-            font-family: Arial, sans-serif;
-        }
-
-        /* Change font color */
-        .my-text-color {
-            color: #FF5733; /* You can use hex code, RGB, or color names */
-        }
-
-        /* Change font size */
-        .my-text-size {
-            font-size: 100px;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# Display text with custom font style, color, and size
-st.markdown("""
-    <p class="my-text my-text-color my-text-size">This is a custom-styled text!</p>
-""", unsafe_allow_html=True)
 
 
