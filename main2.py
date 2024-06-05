@@ -121,7 +121,7 @@ if st.session_state.sidebar_open:
 # st.title('⚥ GenderAI Classifier:  Empowering Insights')
 # st.markdown("*by Venkatesh*")
 
-import streamlit as st
+
 
 # Changing font style, color, and size using HTML/CSS
 st.write("""
@@ -138,7 +138,7 @@ st.write("""
 
         /* Change font size */
         .app-name-size {
-            font-size: 48px;
+            font-size: 100px;
         }
     </style>
 """, unsafe_allow_html=True)
