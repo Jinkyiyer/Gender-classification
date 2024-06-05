@@ -75,7 +75,7 @@ def predict_gender(image):
 
 
 # Create a button to toggle the sidebar
-if st.sidebar.button("About"):
+# if st.sidebar.button("About"):
     st.sidebar.title("About")
     st.sidebar.info("""
         **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
@@ -100,6 +100,34 @@ if st.sidebar.button("About"):
         Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
     """)
 
+
+
+# Create a button on the main content area
+if st.button("About"):
+    st.markdown("""
+    ## About
+    
+    **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
+    The application uses a Convolutional Neural Network (CNN) based on the VGG-16 architecture, which is well-known for its effectiveness in image classification tasks.
+    
+    ### Key Features:
+    - **High Accuracy**: The model achieves an impressive accuracy of 97% on test data.
+    - **User-Friendly**: Simply upload an image, and the application will predict the gender in seconds.
+    - **Real-World Applications**: This technology can be used in various fields such as security, marketing, and social media.
+
+    ### How It Works:
+    1. **Upload an Image**: Choose a photo similar to a passport-size photo for best results.
+    2. **Prediction**: The image is processed and analyzed by the CNN model.
+    3. **Result**: The predicted gender is displayed.
+
+    ### Technical Details:
+    - **Model Architecture**: VGG-16 Convolutional Neural Network.
+    - **Training Data**: The model was trained on a diverse dataset of male and female images.
+    - **Performance**: The model was fine-tuned to achieve optimal performance and accuracy.
+
+    ### Developer:
+    Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
+    """)
 
 # Define the Streamlit UI
 st.title('⚥ GenderAI Classifier:  Empowering Insights')
