@@ -126,11 +126,11 @@ st.image(hero_img_url, use_column_width=True)
 st.write("Please upload a photo similar to a passport-size photo for better classification results.")
 st.write("Here are some examples of suitable photos:")
 
-# Display example photos
+# Display example photos with a specific width
 example_photo_paths = ["example1.jpg", "example2.jpeg", "example3.jpeg"]  # Paths to your example photos
 for example_photo_path in example_photo_paths:
     example_image = Image.open(example_photo_path)
-    st.image(example_image, caption='Example Photo', use_column_width=True)
+    st.image(example_image, caption='Example Photo', width=150)  # Set the width to 150 pixels
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png", "webp"])
 
