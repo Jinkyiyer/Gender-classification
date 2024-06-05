@@ -175,6 +175,23 @@ st.sidebar.info("""
 """)
 
 
-
+# Footer
+st.markdown("""
+    <style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+    }
+    </style>
+    <div class="footer">
+        <p>© 2024 GenderAI Classifier. All rights reserved. | Developed by Venkatesh</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 
