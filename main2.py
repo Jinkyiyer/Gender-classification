@@ -127,7 +127,7 @@ st.write("Please upload a photo similar to a passport-size photo for better clas
 st.write("Here are some examples of suitable photos:")
 
 # Display example photos horizontally with a specific width
-example_photo_paths = ["example1.jpg", "example2.jpeg", "example3.jpeg"]  # Paths to your example photos
+example_photo_paths = ["eg1.jpg", "eg2.jpeg", "eg3.jpeg"]  # Paths to your example photos
 
 cols = st.columns(len(example_photo_paths))
 for col, example_photo_path in zip(cols, example_photo_paths):
