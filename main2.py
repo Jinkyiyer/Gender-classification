@@ -179,15 +179,26 @@ st.markdown("<p class='other-text other-text-color other-text-size'>*by Venkates
 # Welcome to the **GenderAI Classifier**! 🎉
 
 # Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.
-# """)
 
-
-st.write("""
-    <p class='other-text other-text-color other-text-size'>
-        Welcome to the <strong>GenderAI Classifier</strong>! 🎉<br>
-        Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.
-    </p>
+# Custom CSS for large text
+st.markdown("""
+    <style>
+        .custom-text {
+            font-family: Arial, sans-serif;
+            color: #2A9D8F;
+            font-size: 32px;
+            text-align: center;
+        }
+    </style>
 """, unsafe_allow_html=True)
+
+# Display custom large text
+st.markdown('<div class="custom-text">Welcome to the <strong>GenderAI Classifier</strong>!</div>', unsafe_allow_html=True)
+
+
+
+# Display custom styled paragraph
+st.markdown('<p class="custom-paragraph">Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.</p>', unsafe_allow_html=True)
 
 
 # Set background image using an online URL
