@@ -83,7 +83,7 @@ def init_session_state():
         session_state.sidebar_open = False
 
 # Create a button in the main content area to toggle the sidebar
-if st.button("About"):
+if st.button("About GenderAI Classifier"):
     st.session_state.sidebar_open = not st.session_state.sidebar_open
 
 # Initialize the session state
@@ -91,7 +91,7 @@ init_session_state()
 
 # Show/hide sidebar based on session state
 if st.session_state.sidebar_open:
-    st.sidebar.title("About  GenderAI Classifier")
+    st.sidebar.title("About")
     st.sidebar.info("""
         **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
         The application uses a Convolutional Neural Network (CNN) based on the VGG-16 architecture, which is well-known for its effectiveness in image classification tasks.
