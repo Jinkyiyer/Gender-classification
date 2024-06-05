@@ -90,11 +90,11 @@ Discover the power of artificial intelligence with this application, which lever
 """)
 
 
-# Hero image or animation
-# st.image('assets/hero_image.jpg', use_column_width=True)
-# If you have an animation (GIF), use the line below instead:
-path = 'hero_img.jpg'
-st.image('ai hero_img.jpg', use_column_width=True)
+
+# Example URL to hero image hosted on GitHub
+hero_img_url = "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/hero_img.jpg"
+# Display hero image
+st.image(hero_img_url, use_column_width=True)
 
 
 # Add text instructions
