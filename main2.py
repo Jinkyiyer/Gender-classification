@@ -71,12 +71,6 @@ def predict_gender(image):
         return "Female"
 
 
-
-
-    # Scroll to the "About" section
-    st.markdown("""<script>window.scrollTo({top: document.getElementById('About').offsetTop, behavior: 'smooth'});</script>""", unsafe_allow_html=True)
-
-
 # About the project
 st.sidebar.title("About")
 st.sidebar.info("""
