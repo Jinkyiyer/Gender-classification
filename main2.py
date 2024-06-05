@@ -194,7 +194,7 @@ st.write("""
 page_bg_img = '''
 <style>
   .stApp {
-    background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai background 2.jpg");
+    background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai bk3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
