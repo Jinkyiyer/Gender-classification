@@ -117,7 +117,7 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
 # Example URL to hero image hosted on GitHub
-hero_img_url = "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai gif heroimg.webp"
+hero_img_url = "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai hero img.jpg"
 # Display hero image
 st.image(hero_img_url, use_column_width=True)
 
