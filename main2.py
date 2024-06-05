@@ -132,7 +132,7 @@ example_photo_paths = ["example1.jpg", "example2.jpeg", "example3.jpeg"]  # Path
 cols = st.columns(len(example_photo_paths))
 for col, example_photo_path in zip(cols, example_photo_paths):
     example_image = Image.open(example_photo_path)
-    col.image(example_image, caption='Example Photo', width=150)  # Set the width to 150 pixels
+    col.image(example_image, caption='Example Photo', width=250)  # Set the width to 150 pixels
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png", "webp"])
 
