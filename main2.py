@@ -83,7 +83,7 @@ def init_session_state():
         session_state.sidebar_open = False
 
 # Create a button in the main content area to toggle the sidebar
-if st.button("About GenderAI Classifier"):
+if st.button("About this app"):
     st.session_state.sidebar_open = not st.session_state.sidebar_open
 
 # Initialize the session state
