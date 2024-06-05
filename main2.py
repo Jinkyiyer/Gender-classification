@@ -73,9 +73,10 @@ def predict_gender(image):
 
 
 
+import streamlit as st
 
 # Create a button to toggle the sidebar
-# if st.sidebar.button("About"):
+if st.sidebar.button("About"):
     st.sidebar.title("About")
     st.sidebar.info("""
         **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
@@ -99,6 +100,14 @@ def predict_gender(image):
         ### Developer:
         Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
     """)
+
+# Create a button on the main content area
+if st.button("About"):
+    st.sidebar.button("About")
+
+# Add an anchor for the "About" section
+st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
+
 
 
 
