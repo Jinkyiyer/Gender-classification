@@ -126,7 +126,7 @@ st.image(hero_img_url, use_column_width=True)
 st.write("Please upload a photo similar to a passport-size photo for better classification results.")
 st.write("Here are some examples of suitable photos:")
 
-Display example photos
+# Display example photos
 example_photo_paths = ["example1.jpg", "example2.jpeg", "example3.jpeg"]  # Paths to your example photos
 for example_photo_path in example_photo_paths:
     example_image = Image.open(example_photo_path)
@@ -145,19 +145,6 @@ if uploaded_file is not None:
         st.title('Prediction: {}'.format(prediction))
 
 
-import streamlit as st
 
-image_path = "example1.jpg"
-print(f"Using image path: {image_path}")
-
-page_bg_img = '''
-<style>
-  body {
-    background-image: url("%s");
-    background-size: cover;
-  }
-</style>
-''' % image_path
-st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
