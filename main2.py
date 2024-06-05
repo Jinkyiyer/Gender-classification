@@ -90,6 +90,19 @@ Discover the power of artificial intelligence with this application, which lever
 """)
 
 
+# Set background image using an online URL
+page_bg_img = '''
+<style>
+  body {
+    background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai%20background.jpg");
+    background-size: cover;
+  }
+</style>
+'''
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
+
 
 # Example URL to hero image hosted on GitHub
 hero_img_url = "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/hero_img.jpg"
