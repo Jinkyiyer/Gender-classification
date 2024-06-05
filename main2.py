@@ -76,7 +76,7 @@ def predict_gender(image):
 
 
 # Create a button outside the sidebar to open the sidebar
-if st.button("Open the Sidebar"):
+if st.button("About"):
     st.sidebar.title("About")
     st.sidebar.info("""
         **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
