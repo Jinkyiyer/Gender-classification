@@ -78,21 +78,23 @@ def predict_gender(image):
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Define a Streamlit Session State to persist sidebar state
-def init_session_state():
-    session_state = st.session_state
-    if 'sidebar_open' not in session_state:
-        session_state.sidebar_open = False
+import streamlit as st
 
-# Create a button in the main content area to toggle the sidebar and simulate a click on the ">" button
-if st.button("Open the Sidebar"):
-    st.session_state.sidebar_open = not st.session_state.sidebar_open
-    if st.session_state.sidebar_open:
-        # Simulate click on ">" button
-        components.html('<script>document.getElementsByClassName("sidebar-toggler")[0].click()</script>', height=0)
-
-# Initialize the session state
-init_session_state()
+# Create a button in the main content area to toggle the sidebar
+if st.button("Open the Sidebar", key="sidebar_toggle"):
+    # Add JavaScript to toggle sidebar
+    st.markdown(
+        """
+        <script>
+        const sidebar = document.getElementsByClassName("sidebar-container")[0];
+        const sidebarToggle = document.getElementsByClassName("sidebar-toggler")[0];
+        if (sidebar.classList.contains("collapsed")) {
+            sidebarToggle.click();
+        }
+        </script>
+        """,
+        unsafe_allow_html=True
+    )
 
 # Sidebar content
 st.sidebar.title("About")
