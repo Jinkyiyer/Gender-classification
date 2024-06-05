@@ -93,9 +93,11 @@ Discover the power of artificial intelligence with this application, which lever
 # Set background image using an online URL
 page_bg_img = '''
 <style>
-  body {
+  .stApp {
     background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai%20background.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 </style>
 '''
