@@ -71,6 +71,10 @@ def predict_gender(image):
         return "Female"
 
 
+# Create a button to redirect to the "About" section
+st.markdown("[About the project](#About)")
+
+
 # Define the Streamlit UI
 st.title('⚥ GenderAI Classifier:  Empowering Insights')
 st.markdown("*by Venkatesh*")
