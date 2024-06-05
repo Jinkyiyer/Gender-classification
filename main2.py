@@ -99,6 +99,11 @@ st.sidebar.info("""
     Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
 """)
 
+# Scroll to the "About" section
+st.markdown("""<script>document.getElementById('About').scrollIntoView();</script>""", unsafe_allow_html=True)
+
+
+
 # Add an anchor for the "About" section
 st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
 
