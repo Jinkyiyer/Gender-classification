@@ -155,7 +155,7 @@ st.write("""
 
         /* Change font color for other text */
         .other-text-color {
-            color: #333333; /* Dark grey color */
+            color: #FFFFFF3333; /* Dark grey color */
         }
 
         /* Change font size for other text */
