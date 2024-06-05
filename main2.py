@@ -123,6 +123,7 @@ if st.session_state.sidebar_open:
 
 
 
+
 # Changing font style, color, and size using HTML/CSS
 st.write("""
     <style>
@@ -138,15 +139,28 @@ st.write("""
 
         /* Change font size */
         .app-name-size {
-            font-size: 65px;
+            font-size: 36px;
+        }
+
+        /* Change font style for other text */
+        .other-text {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Change font color for other text */
+        .other-text-color {
+            color: #333333; /* Dark grey color */
+        }
+
+        /* Change font size for other text */
+        .other-text-size {
+            font-size: 18px;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# Display custom-styled app name
-st.markdown("""
-    <h1 class="app-name app-name-color app-name-size">GenderAI Classifier</h1>
-""", unsafe_allow_html=True)
+
+
 
 st.write("""
 
