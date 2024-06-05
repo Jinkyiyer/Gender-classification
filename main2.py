@@ -145,7 +145,7 @@ st.write("""
 
         /* Change font size */
         .app-name-size {
-            font-size: 36px;
+            font-size: 65px;
         }
 
         /* Change font style for other text */
@@ -267,7 +267,7 @@ st.markdown("""
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: #f1f1f1;
+        background-color: #00008B;
         text-align: center;
         padding: 10px;
         font-size: 14px;
