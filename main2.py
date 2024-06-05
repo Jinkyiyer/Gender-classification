@@ -99,6 +99,9 @@ st.sidebar.info("""
     Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
 """)
 
+# Add an anchor for the "About" section
+st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
+
 
 # Define the Streamlit UI
 st.title('⚥ GenderAI Classifier:  Empowering Insights')
