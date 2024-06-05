@@ -74,55 +74,47 @@ def predict_gender(image):
 
 
 
-
 import streamlit as st
-import streamlit.components.v1 as components
 
-import streamlit as st
+# Define a Streamlit Session State to persist sidebar state
+def init_session_state():
+    session_state = st.session_state
+    if 'sidebar_open' not in session_state:
+        session_state.sidebar_open = False
 
 # Create a button in the main content area to toggle the sidebar
-if st.button("Open the Sidebar", key="sidebar_toggle"):
-    # Add JavaScript to toggle sidebar
-    st.markdown(
-        """
-        <script>
-        const sidebar = document.getElementsByClassName("sidebar-container")[0];
-        const sidebarToggle = document.getElementsByClassName("sidebar-toggler")[0];
-        if (sidebar.classList.contains("collapsed")) {
-            sidebarToggle.click();
-        }
-        </script>
-        """,
-        unsafe_allow_html=True
-    )
+if st.button("Open the Sidebar"):
+    st.session_state.sidebar_open = not st.session_state.sidebar_open
 
-# Sidebar content
-st.sidebar.title("About")
-st.sidebar.info("""
-    **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
-    The application uses a Convolutional Neural Network (CNN) based on the VGG-16 architecture, which is well-known for its effectiveness in image classification tasks.
-    
-    ### Key Features:
-    - **High Accuracy**: The model achieves an impressive accuracy of 97% on test data.
-    - **User-Friendly**: Simply upload an image, and the application will predict the gender in seconds.
-    - **Real-World Applications**: This technology can be used in various fields such as security, marketing, and social media.
+# Initialize the session state
+init_session_state()
 
-    ### How It Works:
-    1. **Upload an Image**: Choose a photo similar to a passport-size photo for best results.
-    2. **Prediction**: The image is processed and analyzed by the CNN model.
-    3. **Result**: The predicted gender is displayed.
+# Show/hide sidebar based on session state
+if st.session_state.sidebar_open:
+    st.sidebar.title("About")
+    st.sidebar.info("""
+        **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
+        The application uses a Convolutional Neural Network (CNN) based on the VGG-16 architecture, which is well-known for its effectiveness in image classification tasks.
+        
+        ### Key Features:
+        - **High Accuracy**: The model achieves an impressive accuracy of 97% on test data.
+        - **User-Friendly**: Simply upload an image, and the application will predict the gender in seconds.
+        - **Real-World Applications**: This technology can be used in various fields such as security, marketing, and social media.
 
-    ### Technical Details:
-    - **Model Architecture**: VGG-16 Convolutional Neural Network.
-    - **Training Data**: The model was trained on a diverse dataset of male and female images.
-    - **Performance**: The model was fine-tuned to achieve optimal performance and accuracy.
+        ### How It Works:
+        1. **Upload an Image**: Choose a photo similar to a passport-size photo for best results.
+        2. **Prediction**: The image is processed and analyzed by the CNN model.
+        3. **Result**: The predicted gender is displayed.
 
-    ### Developer:
-    Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
-""")
+        ### Technical Details:
+        - **Model Architecture**: VGG-16 Convolutional Neural Network.
+        - **Training Data**: The model was trained on a diverse dataset of male and female images.
+        - **Performance**: The model was fine-tuned to achieve optimal performance and accuracy.
 
+        ### Developer:
+        Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
+    """)
 
-# Create a button on the main content area
 
 
 # Define the Streamlit UI
