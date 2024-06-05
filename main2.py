@@ -72,8 +72,7 @@ def predict_gender(image):
 
 
 
-# Create a button in the sidebar
-if st.sidebar.button("Scroll to About"):
+
     # Scroll to the "About" section
     st.markdown("""<script>window.scrollTo({top: document.getElementById('About').offsetTop, behavior: 'smooth'});</script>""", unsafe_allow_html=True)
 
@@ -102,6 +101,9 @@ st.sidebar.info("""
     ### Developer:
     Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
 """)
+
+# Add a link to scroll to the "About" section
+st.sidebar.markdown("[About the project](#About)")
 
 # Add an anchor for the "About" section
 st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
