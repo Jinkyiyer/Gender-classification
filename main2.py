@@ -167,7 +167,7 @@ st.write("""
 
 
 # Streamlit UI
-st.title('<h1 class="app-name app-name-color app-name-size">GenderAI Classifier</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="app-name app-name-color app-name-size">GenderAI Classifier</h1>', unsafe_allow_html=True)
 st.markdown("<p class='other-text other-text-color other-text-size'>*by Venkatesh*</p>", unsafe_allow_html=True)
 
 
