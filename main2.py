@@ -138,7 +138,7 @@ st.write("""
 
         /* Change font size */
         .app-name-size {
-            font-size: 50px;
+            font-size: 75px;
         }
     </style>
 """, unsafe_allow_html=True)
