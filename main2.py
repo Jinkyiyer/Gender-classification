@@ -206,3 +206,31 @@ Thank you for using the GenderAI Classifier. We appreciate your interest and hop
 """)
 
 
+import streamlit as st
+
+# Changing font style, color, and size using HTML/CSS
+st.write("""
+    <style>
+        /* Change font style */
+        .my-text {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Change font color */
+        .my-text-color {
+            color: #FF5733; /* You can use hex code, RGB, or color names */
+        }
+
+        /* Change font size */
+        .my-text-size {
+            font-size: 20px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Display text with custom font style, color, and size
+st.markdown("""
+    <p class="my-text my-text-color my-text-size">This is a custom-styled text!</p>
+""", unsafe_allow_html=True)
+
+
