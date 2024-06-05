@@ -71,6 +71,13 @@ def predict_gender(image):
         return "Female"
 
 
+# Add a link to scroll to the "About" section
+st.sidebar.markdown("[About the project](#About)")
+
+# Add an anchor for the "About" section
+st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
+
+
 # About the project
 st.sidebar.title("About")
 st.sidebar.info("""
@@ -96,11 +103,6 @@ st.sidebar.info("""
     Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
 """)
 
-# Add a link to scroll to the "About" section
-st.sidebar.markdown("[About the project](#About)")
-
-# Add an anchor for the "About" section
-st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
 
 
 
