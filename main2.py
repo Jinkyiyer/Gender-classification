@@ -115,7 +115,7 @@ Discover the power of artificial intelligence with this application, which lever
 
 
 # Example URL to hero image hosted on GitHub
-hero_img_url = "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/AI gif.webp"
+hero_img_url = "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai gif heroimg.webp"
 # Display hero image
 st.image(hero_img_url, use_column_width=True)
 
