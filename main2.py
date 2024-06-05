@@ -80,8 +80,8 @@ import streamlit as st
 # Define a reactive variable to control the visibility of the "About" section
 show_about_section = st.sidebar.checkbox("About", key="about_checkbox")
 
-# If the checkbox is checked, display the "About" section
-if show_about_section:
+# Create a button to toggle the sidebar
+if st.sidebar.button("About"):
     st.sidebar.title("About")
     st.sidebar.info("""
         **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
@@ -105,7 +105,6 @@ if show_about_section:
         ### Developer:
         Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
     """)
-
 
 
 # Create a button on the main content area
