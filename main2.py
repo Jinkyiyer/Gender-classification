@@ -71,11 +71,7 @@ def predict_gender(image):
         return "Female"
 
 
-# Add a link to scroll to the "About" section
-st.sidebar.markdown("[About the project](#About)")
 
-# Add an anchor for the "About" section
-st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
 
 
 # About the project
@@ -108,8 +104,11 @@ st.sidebar.info("""
 
 
 
-# # Add an anchor for the "About" section
-# st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
+# Add a link to scroll to the "About" section
+st.sidebar.markdown("[About the project](#About)")
+
+# Add an anchor for the "About" section
+st.markdown("<h1 id='About'>About</h1>", unsafe_allow_html=True)
 
 
 # Define the Streamlit UI
