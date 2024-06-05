@@ -73,12 +73,6 @@ def predict_gender(image):
 
 
 
-import streamlit as st
-
-import streamlit as st
-
-# Define a reactive variable to control the visibility of the "About" section
-show_about_section = st.sidebar.checkbox("About", key="about_checkbox")
 
 
 # Create a button outside the sidebar to open the sidebar
