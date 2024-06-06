@@ -205,7 +205,7 @@ st.markdown('<p class="custom-paragraph">Discover the power of artificial intell
 page_bg_img = '''
 <style>
   .stApp {
-    background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai bk4.gif");
+    background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai bk6.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
