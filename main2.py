@@ -134,12 +134,22 @@ if st.session_state.sidebar_open:
 # Custom CSS for large text and other text
 st.markdown("""
     <style>
-        /* Title style */
-        .custom-title {
+        /* Main title style */
+        .main-title {
             font-family: 'Arial Black', sans-serif;
             color: #FF5733; /* Coral color */
             font-size: 65px;
             text-align: center;
+            margin-bottom: 0;
+        }
+
+        /* Subtitle style */
+        .subtitle {
+            font-family: 'Arial', sans-serif;
+            color: #FFA07A; /* Light Salmon color */
+            font-size: 40px;
+            text-align: center;
+            margin-top: 0;
             margin-bottom: 20px;
         }
 
@@ -171,9 +181,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# Display custom title
-st.markdown('<div class="custom-title">GenderAI Classifier: Empowering Insights</div>', unsafe_allow_html=True)
-
+ Display custom title
+st.markdown('<div class="main-title">GenderAI Classifier</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Empowering Insights</div>', unsafe_allow_html=True)
 # Display custom large text
 st.markdown('<div class="custom-header">Welcome to the <strong>GenderAI Classifier</strong>!</div>', unsafe_allow_html=True)
 # Streamlit UI
@@ -239,6 +249,11 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 hero_img_url = "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai hero img.jpg"
 # Display hero image
 st.image(hero_img_url, use_column_width=True)
+
+# Convert image to base64
+import base64
+
+
 
 
 # Add text instructions
