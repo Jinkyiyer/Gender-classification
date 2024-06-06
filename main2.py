@@ -130,46 +130,54 @@ if st.session_state.sidebar_open:
 
 
 
-## Changing font style, color, and size using HTML/CSS
-st.write("""
+
+# Custom CSS for large text and other text
+st.markdown("""
     <style>
-        /* Change font style */
-        .app-name {
+        /* Title style */
+        .custom-title {
             font-family: 'Arial Black', sans-serif;
-        }
-
-        /* Change font color */
-        .app-name-color {
             color: #FF5733; /* Coral color */
-        }
-
-        /* Change font size */
-        .app-name-size {
             font-size: 65px;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        /* Change font style for other text */
-        .other-text {
-            font-family: Arial, sans-serif;
+        /* Header style */
+        .custom-header {
+            font-family: 'Arial', sans-serif;
+            color: #FFFFFF;
+            font-size: 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
-        /* Change font color for other text */
-        .other-text-color {
-            color: #FFFFFF3333; /* Dark grey color */
-        }
-
-        /* Change font size for other text */
-        .other-text-size {
-            font-size: 18px;
+        /* Paragraph style */
+        .custom-paragraph {
+            font-family: 'Courier New', Courier, monospace;
+            color: #FFD700; /* Gold color */
+            font-size: 22px;
+            text-align: left;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
     </style>
 """, unsafe_allow_html=True)
 
 
-# Streamlit UI
-st.markdown('<h1 class="app-name app-name-color app-name-size">GenderAI Classifier</h1>', unsafe_allow_html=True)
-st.markdown("<p class='other-text other-text-color other-text-size'>*by Venkatesh*</p>", unsafe_allow_html=True)
+# Display custom title
+st.markdown('<div class="custom-title">GenderAI Classifier: Empowering Insights</div>', unsafe_allow_html=True)
 
+# Display custom large text
+st.markdown('<div class="custom-header">Welcome to the <strong>GenderAI Classifier</strong>!</div>', unsafe_allow_html=True)
+# Streamlit UI
+st.markdown("*by Venkatesh*")
 
 
 # st.write("""
