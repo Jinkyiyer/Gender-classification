@@ -9,6 +9,12 @@ import os
 
 
 
+
+
+
+
+
+
 # Path to your zip file (relative path)
 zip_file_path = 'Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.zip'
 
@@ -34,17 +40,13 @@ extracted_files = os.listdir(extract_dir)
 print("Extracted files:", extracted_files)
 
 # Now you can load your model from the extracted files
-# For example, if your model file is an h5 file, you can load it like this:
+
 model_filename = [f for f in extracted_files if f.endswith('.h5')][0]
 model_path = os.path.join(extract_dir, model_filename)
 model = tf.keras.models.load_model(model_path)
 
 
 
-# # Load your trained models
-# model_path = r'D:\Venkatesh\Projects\CNN Projects\Gender classification project\Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.h5'
-# # model_path = 'Male vs Female trained model_50 tt_epochs VGG  part 2 till now best.h5'
-# model = tf.keras.models.load_model(model_path)
 
 
 # Define function to make predictions
@@ -71,18 +73,154 @@ def predict_gender(image):
         return "Female"
 
 
-# Define the Streamlit UI
-st.title('Gender Classification App of Venkatesh')
+
+
+
+
+
+# Define a Streamlit Session State to persist sidebar state
+def init_session_state():
+    session_state = st.session_state
+    if 'sidebar_open' not in session_state:
+        session_state.sidebar_open = False
+
+# Create a button in the main content area to toggle the sidebar
+if st.button("About this app"):
+    st.session_state.sidebar_open = not st.session_state.sidebar_open
+
+# Initialize the session state
+init_session_state()
+
+# Show/hide sidebar based on session state
+if st.session_state.sidebar_open:
+    st.sidebar.title("About")
+    st.sidebar.info("""
+        **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
+        The application uses a Convolutional Neural Network (CNN) based on the VGG-16 architecture, which is well-known for its effectiveness in image classification tasks.
+        
+        ### Key Features:
+        - **High Accuracy**: The model achieves an impressive accuracy of 97% on test data.
+        - **User-Friendly**: Simply upload an image, and the application will predict the gender in seconds.
+        - **Real-World Applications**: This technology can be used in various fields such as security, marketing, and social media.
+
+        ### How It Works:
+        1. **Upload an Image**: Choose a photo similar to a passport-size photo for best results.
+        2. **Prediction**: The image is processed and analyzed by the CNN model.
+        3. **Result**: The predicted gender is displayed.
+
+        ### Technical Details:
+        - **Model Architecture**: VGG-16 Convolutional Neural Network.
+        - **Training Data**: The model was trained on a diverse dataset of male and female images.
+        - **Performance**: The model was fine-tuned to achieve optimal performance and accuracy.
+
+        ### Developer:
+        Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
+    """)
+
+
+# Custom CSS for large text and other text
+st.markdown("""
+    <style>
+        /* Main title style */
+        .main-title {
+            font-family: 'Arial Black', sans-serif;
+            color: #FF5733; /* Coral color */
+            font-size: 65px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        /* Subtitle style */
+        .subtitle {
+            font-family: 'Arial', sans-serif;
+            color: #FFA07A; /* Light Salmon color */
+            font-size: 40px;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Header style */
+        .custom-header {
+            font-family: 'Arial', sans-serif;
+            color: #FFFFFF;
+            font-size: 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph style */
+        .custom-paragraph {
+            font-family: 'Courier New', Courier, monospace;
+            color: #FFD700; /* Gold color */
+            font-size: 22px;
+            text-align: left;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+
+ #Display custom title
+st.markdown('<div class="main-title">GenderAI Classifier</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Empowering Insights</div>', unsafe_allow_html=True)
+# Display custom large text
+st.markdown('<div class="custom-header">Welcome to the <strong>GenderAI Classifier</strong>!</div>', unsafe_allow_html=True)
+# Streamlit UI
+st.markdown("*by Venkatesh*")
+
+
+
+
+
+# Display custom styled paragraph
+st.markdown('<p class="custom-paragraph">Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.</p>', unsafe_allow_html=True)
+
+
+# Set background image using an online URL
+page_bg_img = '''
+<style>
+  .stApp {
+    background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai bk4.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>
+'''
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
+
+# Example URL to hero image hosted on GitHub
+hero_img_url = "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai hero img.jpg"
+# Display hero image
+st.image(hero_img_url, use_column_width=True)
+
+# Convert image to base64
+import base64
+
+
+
 
 # Add text instructions
 st.write("Please upload a photo similar to a passport-size photo for better classification results.")
 st.write("Here are some examples of suitable photos:")
 
-# Display example photos
-example_photo_paths = ["example1.jpg", "example2.jpeg", "example3.jpeg"]  # Paths to your example photos
-for example_photo_path in example_photo_paths:
+# Display example photos horizontally with a specific width
+example_photo_paths = ["eg1.jpg", "eg2.jpeg", "eg3.jpeg"]  # Paths to your example photos
+
+cols = st.columns(len(example_photo_paths))
+for col, example_photo_path in zip(cols, example_photo_paths):
     example_image = Image.open(example_photo_path)
-    st.image(example_image, caption='Example Photo', use_column_width=True)
+    col.image(example_image, caption='Example Photo', width=250)  # Set the width to 150 pixels
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png", "webp"])
 
@@ -95,3 +233,41 @@ if uploaded_file is not None:
     if st.button('Predict'):
         prediction = predict_gender(image)
         st.title('Prediction: {}'.format(prediction))
+
+
+
+
+
+
+# Display thank you message
+st.markdown("""
+## Thank You!
+
+Thank you for using the GenderAI Classifier. We appreciate your interest and hope you found this application helpful.
+
+""")
+
+# Footer
+st.markdown("""
+    <style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #0a0d36;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+    }
+    </style>
+    <div class="footer">
+        <p>© 2024 GenderAI Classifier. All rights reserved. | Developed by Venkatesh</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+
+
+
+
