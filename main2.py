@@ -322,44 +322,26 @@ import tensorflow as tf
 import zipfile
 import os
 
-# Function to convert image to base64
-def get_base64_of_bin_file(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-# Convert background image to base64
-bg_image = get_base64_of_bin_file('/mnt/data/ai bk6.jpg')
-
-# Set background image using base64
-page_bg_img = f'''
-<style>
-  .stApp {{
-    background-image: url("data:image/jpg;base64,{bg_image}");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }}
-</style>
-'''
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
-# Load model from a zip file
+# Path to your zip file (relative path)
 zip_file_path = 'Male vs Female trained model_50 tt_epochs VGG part 2 till now best.zip'
+# Directory where you want to extract the contents of the zip file (relative path)
 extract_dir = 'unzipped_model'
+# Get the absolute path of the current directory
 current_directory = os.getcwd()
+# Combine the current directory with the relative paths
 zip_file_path = os.path.join(current_directory, zip_file_path)
 extract_dir = os.path.join(current_directory, extract_dir)
+# Create the extraction directory if it doesn't exist
 os.makedirs(extract_dir, exist_ok=True)
-
+# Extract the contents of the zip file
 with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
     zip_ref.extractall(extract_dir)
-
+# Load model from the extracted files
 model_filename = [f for f in os.listdir(extract_dir) if f.endswith('.h5')][0]
 model_path = os.path.join(extract_dir, model_filename)
 model = tf.keras.models.load_model(model_path)
 
-# Function to make predictions
+# Define function to make predictions
 def predict_gender(image):
     resized_image = image.resize((224, 224))
     img_array = np.array(resized_image) / 255.0
@@ -368,91 +350,123 @@ def predict_gender(image):
     probability = prediction[0][0]
     return "Male" if probability >= 0.5 else "Female"
 
-# Streamlit UI
-st.markdown('<h1 class="app-name app-name-color app-name-size">GenderAI Classifier</h1>', unsafe_allow_html=True)
-st.markdown('<h2 class="custom-text">Empowering Insights</h2>', unsafe_allow_html=True)
+# Set background image using an online URL
+page_bg_img = '''
+<style>
+  .stApp {
+    background-image: url("https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai%20bk6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>
+'''
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# Custom styles
-st.write("""
+# Custom CSS for large text and other text
+st.markdown("""
     <style>
-        .app-name {
+        .main-title {
             font-family: 'Arial Black', sans-serif;
             color: #FF5733;
             font-size: 65px;
+            text-align: center;
+            margin-bottom: 0;
         }
-        .custom-text {
-            font-family: Arial, sans-serif;
-            color: #FFFFFF;
-            font-size: 30px;
+        .subtitle {
+            font-family: 'Arial', sans-serif;
+            color: #FFA07A;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
         }
-        .large-text {
-            font-family: Arial, sans-serif;
+        .custom-header {
+            font-family: 'Arial', sans-serif;
             color: #FFFFFF;
-            font-size: 20px;
+            font-size: 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .custom-paragraph {
+            font-family: 'Courier New', Courier, monospace;
+            color: #FFD700;
+            font-size: 22px;
+            text-align: left;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# Welcome message
-st.markdown('<div class="large-text">Welcome to the <strong>GenderAI Classifier</strong>!</div>', unsafe_allow_html=True)
+# Display custom title and subtitles
+st.markdown('<div class="main-title">GenderAI Classifier</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Empowering Insights</div>', unsafe_allow_html=True)
+st.markdown('<div class="custom-header">Welcome to the <strong>GenderAI Classifier</strong>!</div>', unsafe_allow_html=True)
+st.markdown("*by Venkatesh*")
 
-# Description
-st.markdown('<div class="large-text">Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.</div>', unsafe_allow_html=True)
+# Display custom styled paragraph
+st.markdown('<p class="custom-paragraph">Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.</p>', unsafe_allow_html=True)
 
-# Display example photos horizontally
-example_photo_paths = ["example1.jpg", "example2.jpeg", "example3.jpeg"]
+# Example URL to hero image hosted on GitHub
+hero_img_url = "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/ai%20hero%20img.jpg"
+# Display hero image
+st.image(hero_img_url, use_column_width=True)
+
+# Add text instructions
+st.write("Please upload a photo similar to a passport-size photo for better classification results.")
+st.write("Here are some examples of suitable photos:")
+
+# Display example photos horizontally with a specific width
+example_photo_paths = [
+    "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/eg1.jpg",
+    "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/eg2.jpeg",
+    "https://raw.githubusercontent.com/Jinkyiyer/Gender-classification/main/eg3.jpeg"
+]
 cols = st.columns(len(example_photo_paths))
 for col, example_photo_path in zip(cols, example_photo_paths):
-    example_image = Image.open(example_photo_path)
-    col.image(example_image, caption='Example Photo', width=150)
+    col.image(example_photo_path, caption='Example Photo', width=250)
 
-# File uploader
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png", "webp"])
 
 if uploaded_file is not None:
+    # Display the uploaded image
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image', use_column_width=True)
-
+    # Make prediction when 'Predict' button is clicked
     if st.button('Predict'):
         prediction = predict_gender(image)
         st.title(f'Prediction: {prediction}')
 
-# Sidebar - About the project
-st.sidebar.title("About")
-st.sidebar.info("""
-    **GenderAI Classifier** is an innovative application that leverages the power of artificial intelligence to predict gender from images. 
-    The application uses a Convolutional Neural Network (CNN) based on the VGG-16 architecture, which is well-known for its effectiveness in image classification tasks.
-
-    ### Key Features:
-    - **High Accuracy**: The model achieves an impressive accuracy of 97% on test data.
-    - **User-Friendly**: Simply upload an image, and the application will predict the gender in seconds.
-    - **Real-World Applications**: This technology can be used in various fields such as security, marketing, and social media.
-
-    ### How It Works:
-    1. **Upload an Image**: Choose a photo similar to a passport-size photo for best results.
-    2. **Prediction**: The image is processed and analyzed by the CNN model.
-    3. **Result**: The predicted gender is displayed.
-
-    ### Developer:
-    Created by Venkatesh, this application showcases the potential of AI in everyday tasks. Feel free to reach out for collaborations or inquiries.
+# Display thank you message
+st.markdown("""
+## Thank You!
+Thank you for using the GenderAI Classifier. We appreciate your interest and hope you found this application helpful.
 """)
 
 # Footer
 st.markdown("""
-    <style>
-    .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: #f1f1f1;
-        text-align: center;
-        padding: 10px;
-        font-size: 14px;
-    }
-    </style>
-    <div class="footer">
-        <p>© 2024 GenderAI Classifier. All rights reserved. | Developed by Venkatesh</p>
-    </div>
-    """, unsafe_allow_html=True)
+<style>
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #0a0d36;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+</style>
+<div class="footer">
+    <p>© 2024 GenderAI Classifier. All rights reserved. | Developed by Venkatesh</p>
+</div>
+""", unsafe_allow_html=True)
+
 
