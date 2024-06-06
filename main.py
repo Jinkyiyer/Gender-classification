@@ -253,7 +253,7 @@ if st.button('Predict'):
         <div class="prediction-output">
             <h2>Here's the Result:</h2>
             <p><span class="highlight">{prediction} {emoji}!</span></p>
-            <p>Our AI has analyzed the image and provided the above prediction with remarkable accuracy.</p>
+            <p>Our AI has analyzed the image and provided the above prediction.</p>
         </div>
     ''', unsafe_allow_html=True)
 
