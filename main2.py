@@ -188,20 +188,20 @@ st.markdown("*by Venkatesh*")
 
 # Discover the power of artificial intelligence with this application, which leverages state-of-the-art deep learning techniques to predict gender. Simply upload an image, and let the CNN model do the rest.
 
-# Custom CSS for large text
-st.markdown("""
-    <style>
-        .custom-text {
-            font-family: Arial, sans-serif;
-            color: #2A9D8F;
-            font-size: 32px;
-            text-align: center;
-        }
-    </style>
-""", unsafe_allow_html=True)
+# # Custom CSS for large text
+# st.markdown("""
+#     <style>
+#         .custom-text {
+#             font-family: Arial, sans-serif;
+#             color: #2A9D8F;
+#             font-size: 32px;
+#             text-align: center;
+#         }
+#     </style>
+# """, unsafe_allow_html=True)
 
-# Display custom large text
-st.markdown('<div class="custom-text">Welcome to the <strong>GenderAI Classifier</strong>!</div>', unsafe_allow_html=True)
+# # Display custom large text
+# st.markdown('<div class="custom-text">Welcome to the <strong>GenderAI Classifier</strong>!</div>', unsafe_allow_html=True)
 
 
 
