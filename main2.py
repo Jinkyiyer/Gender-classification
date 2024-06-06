@@ -181,7 +181,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
- Display custom title
+ #Display custom title
 st.markdown('<div class="main-title">GenderAI Classifier</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">Empowering Insights</div>', unsafe_allow_html=True)
 # Display custom large text
