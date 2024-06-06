@@ -164,6 +164,13 @@ st.markdown("""
             border-radius: 10px;
             margin-bottom: 20px;
         }
+        .prediction-output {
+            font-family: 'Arial', sans-serif;
+            color: #FFD700;
+            font-size: 50px;
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -232,7 +239,8 @@ if uploaded_file is not None:
     # Make prediction when 'Predict' button is clicked
     if st.button('Predict'):
         prediction = predict_gender(image)
-        st.title('Prediction: {}'.format(prediction))
+        st.markdown(f'<div class="prediction-output">Prediction: {prediction}</div>', unsafe_allow_html=True)
+
 
 
 
