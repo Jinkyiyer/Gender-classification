@@ -68,9 +68,9 @@ def predict_gender(image):
 
     # Apply a threshold (0.5 in this case) to classify as 0 or 1
     if probability >= 0.5:
-        return "Male"
+        return "Male", "👨"
     else:
-        return "Female"
+        return "Female", "👩"
 
 
 
@@ -164,12 +164,22 @@ st.markdown("""
             border-radius: 10px;
             margin-bottom: 20px;
         }
+              /* Prediction output style */
         .prediction-output {
             font-family: 'Arial', sans-serif;
-            color: #FFD700;
-            font-size: 50px;
+            color: #00FF00; /* Light Green color */
+            font-size: 30px;
             text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
             margin-top: 20px;
+        }
+
+        .highlight {
+            font-size: 40px;
+            font-weight: bold;
+            color: #FFD700; /* Gold color */
         }
     </style>
 """, unsafe_allow_html=True)
@@ -236,10 +246,16 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image', use_column_width=True)
 
-    # Make prediction when 'Predict' button is clicked
-    if st.button('Predict'):
-        prediction = predict_gender(image)
-        st.markdown(f'<div class="prediction-output">Prediction: {prediction}</div>', unsafe_allow_html=True)
+   # Make prediction when 'Predict' button is clicked
+if st.button('Predict'):
+    prediction, emoji = predict_gender(image)
+    st.markdown(f'''
+        <div class="prediction-output">
+            <h2>Here's the Result:</h2>
+            <p><span class="highlight">{prediction} {emoji}!</span></p>
+            <p>Our AI has analyzed the image and provided the above prediction with remarkable accuracy.</p>
+        </div>
+    ''', unsafe_allow_html=True)
 
 
 
